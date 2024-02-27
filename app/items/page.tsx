@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { ItemDetails_Type, SearchResponse_Type } from '@/types/api/search'
+import { ItemListing_Type, SearchResponse_Type } from '@/types/api'
 import { useSearchParams } from 'next/navigation'
 import Link from 'next/link'
 
@@ -10,7 +10,7 @@ const Items = () => {
 	const query = params.get('search')
 
 	const [loading, setLoading] = useState(false)
-	const [items, setItems] = useState<ItemDetails_Type[]>([])
+	const [items, setItems] = useState<ItemListing_Type[]>([])
 
 	// call api whenever params change
 	useEffect(() => {

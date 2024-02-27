@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { ItemDetails_Type, SearchResponse_Type } from '@/types/api/search'
+import { ItemListing_Type, SearchResponse_Type } from '@/types/api'
 
 // Search items by name
 export const GET = async (req: NextRequest) => {
@@ -13,8 +13,8 @@ export const GET = async (req: NextRequest) => {
 	// map to response object
 	const categories = data.filters.find((cat) => cat.id === 'category')?.values.map((v) => v.name)
 
-	const items: ItemDetails_Type[] = data.results.map((item) => {
-		const detail: ItemDetails_Type = {
+	const items: ItemListing_Type[] = data.results.map((item) => {
+		const detail: ItemListing_Type = {
 			id: item.id,
 			title: item.title,
 			price: {

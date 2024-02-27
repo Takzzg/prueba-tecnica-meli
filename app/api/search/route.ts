@@ -5,7 +5,7 @@ import { ItemDetails_Type, SearchResponse_Type } from '../../../types/api/search
 export const GET = async (req: NextRequest) => {
 	// fetch items
 	const params = req.nextUrl.searchParams
-	const res = await fetch(`${process.env.MELI_SEARCH_URL}${params.get('title')}`)
+	const res = await fetch(`${process.env.MELI_SEARCH_URL}?q=${params.get('title')}`)
 	const data = await res.json()
 
 	if (!data) return NextResponse.json(data)

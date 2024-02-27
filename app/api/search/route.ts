@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { ItemDetails_Type, SearchResponse_Type } from '../../../types/api/search'
+import { ItemDetails_Type, SearchResponse_Type } from '@/types/api/search'
 
 // Search items by name
 export const GET = async (req: NextRequest) => {

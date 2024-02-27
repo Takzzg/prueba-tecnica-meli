@@ -1,8 +1,12 @@
 'use client'
 
-import Link from 'next/link'
+import styles from './SearchBox.module.scss'
+import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
+
+import Logo_ML from '@/public/assets/Logo_ML@2x.png'
+import Search_Icon from '@/public/assets/ic_Search@2x.png'
 
 const SearchBox = () => {
 	const router = useRouter()
@@ -13,19 +17,45 @@ const SearchBox = () => {
 	}
 
 	return (
-		<div className='flex' style={{ gap: '1rem' }}>
-			<Link href={'/'}>Home</Link>
+		<div className={styles.searchBoxContainer}>
+			<div className={styles.content}>
+				<div className={styles.logoContainer}>
+					<div className={styles.logoML}>
+						<Image
+							onClick={() => router.push('/')}
+							src={Logo_ML}
+							alt='Logo Mercado Libre'
+							fill
+						/>
+					</div>
+				</div>
 
-			<div className='flex'>
-				<input
-					type='text'
-					value={searchInput}
-					onChange={(event) => setSearchInput(event.target.value)}
-					onKeyUp={(event) => (event.key === 'Enter' ? handleSearchAction() : undefined)}
-				/>
-				<button onClick={handleSearchAction} disabled={!searchInput}>
-					Search
-				</button>
+				<div className={styles.inputContainer}>
+					<input
+						type='text'
+						value={searchInput}
+						onChange={(event) => setSearchInput(event.target.value)}
+						onKeyUp={(event) =>
+							event.key === 'Enter' ? handleSearchAction() : undefined
+						}
+						placeholder='Nunca dejes de buscar'
+						className={styles.textInput}
+					/>
+					<button
+						onClick={handleSearchAction}
+						disabled={!searchInput}
+						className={styles.searchButton}
+					>
+						<div className={styles.searchIcon}>
+							<Image
+								onClick={() => router.push('/')}
+								src={Search_Icon}
+								alt='Buscar'
+								fill
+							/>
+						</div>
+					</button>
+				</div>
 			</div>
 		</div>
 	)

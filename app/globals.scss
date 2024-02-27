@@ -1,7 +1,24 @@
-.flex {
-	display: flex;
+@import '../styles/guidelines.scss';
+
+body {
+	padding: 0;
+	margin: 0;
+
+	background-color: $color-white;
+
+	display: grid;
+	grid-template-columns: repeat(12, 1fr);
+
+	.children-container {
+		grid-column: 2/-2;
+	}
 }
 
-.flex-col {
-	flex-direction: column;
+button {
+	border-radius: 0;
+	border: none;
+}
+
+input[type='text'] {
+	border: none;
 }

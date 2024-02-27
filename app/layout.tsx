@@ -14,7 +14,7 @@ const RootLayout = ({ children }) => {
 		<html lang='en'>
 			<body className={inter.className}>
 				<SearchBox />
-				{children}
+				<div className='children-container'>{children}</div>
 			</body>
 		</html>
 	)

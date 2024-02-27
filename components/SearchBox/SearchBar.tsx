@@ -1,6 +1,6 @@
 'use client'
 
-import styles from './SearchBox.module.scss'
+import styles from './SearchBar.module.scss'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
@@ -8,7 +8,7 @@ import { useState } from 'react'
 import Logo_ML from '@/public/assets/Logo_ML@2x.png'
 import Search_Icon from '@/public/assets/ic_Search@2x.png'
 
-const SearchBox = () => {
+const SearchBar = () => {
 	const router = useRouter()
 	const [searchInput, setSearchInput] = useState('')
 
@@ -61,4 +61,4 @@ const SearchBox = () => {
 	)
 }
 
-export default SearchBox
+export default SearchBar

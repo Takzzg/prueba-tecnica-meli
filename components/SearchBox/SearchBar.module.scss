@@ -18,7 +18,7 @@
 		grid-template-columns: subgrid;
 
 		.logoContainer {
-			padding: $spacing-xxs;
+			padding-right: $spacing-xxs;
 
 			.logoML {
 				width: 100%;
@@ -34,6 +34,7 @@
 			grid-template-columns: 1fr auto;
 			border-radius: $radius;
 			overflow: hidden;
+			background-color: white;
 
 			&:focus-within {
 				outline: 1px solid $color-dark-gray;
@@ -41,6 +42,7 @@
 
 			.textInput {
 				padding: $spacing-xs;
+				border-right: 1px solid $color-white;
 
 				&:focus {
 					outline: transparent;
@@ -55,12 +57,13 @@
 				padding: $spacing-xs;
 
 				&:disabled {
-					cursor: default;
+					cursor: not-allowed;
+					opacity: 0.25;
 				}
 
 				.searchIcon {
 					height: 100%;
-					width: 1rem;
+					width: $spacing-sm;
 					position: relative;
 				}
 			}

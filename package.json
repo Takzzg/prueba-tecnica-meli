@@ -15,7 +15,10 @@
     "sass": "^1.71.1"
   },
   "devDependencies": {
+    "@types/node": "20.11.20",
+    "@types/react": "18.2.59",
     "eslint": "^8",
-    "eslint-config-next": "14.1.0"
+    "eslint-config-next": "14.1.0",
+    "typescript": "5.3.3"
   }
 }

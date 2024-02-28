@@ -6,10 +6,16 @@
 	grid-template-columns: subgrid;
 	gap: $spacing-xxs;
 
-	.categories {
+	.categoriesBreadcrumb {
 		grid-column: span 10;
 		font-size: $font-size-xs;
 		padding: $spacing-sm;
 		padding-left: 0;
+		display: flex;
+		gap: $spacing-xs;
+
+		.category:last-of-type {
+			font-weight: bold;
+		}
 	}
 }

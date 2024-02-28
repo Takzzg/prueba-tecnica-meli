@@ -11,7 +11,13 @@ export const GET = async (req: NextRequest) => {
 	if (!data) return NextResponse.json(data)
 
 	// map to response object
-	const categories = data.filters.find((cat) => cat.id === 'category')?.values.map((v) => v.name)
+	const categories = data.filters
+		// find category filter
+		.find((f) => f.id === 'category')
+		// sort by path_from_root length, and save longest
+		.values.sort((a, b) => a.path_from_root.length - b.path_from_root.length)[0]
+		// map longest path to string array
+		.path_from_root.map((v) => v.name)
 
 	const items: ItemListing_Type[] = data.results.map((item) => {
 		const detail: ItemListing_Type = {

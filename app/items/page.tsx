@@ -1,7 +1,7 @@
 'use client'
 
 import styles from './items.module.scss'
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { ItemListing_Type, SearchResponse_Type } from '@/types/api'
 import { useSearchParams } from 'next/navigation'
 import ItemListing from '@/components/ItemListing/ItemListing'
@@ -11,6 +11,7 @@ const Items = () => {
 	const query = params.get('search')
 
 	const [loading, setLoading] = useState(false)
+	const [categories, setCategories] = useState<string[]>([])
 	const [items, setItems] = useState<ItemListing_Type[]>([])
 
 	// call api whenever params change
@@ -21,6 +22,7 @@ const Items = () => {
 			const res = await fetch(`/api/search?title=${query}`)
 			const data: SearchResponse_Type = await res.json()
 			setItems(data.items || [])
+			setCategories(data.categories || [])
 
 			setLoading(false)
 		}
@@ -31,9 +33,15 @@ const Items = () => {
 
 	return (
 		<div className={styles.searchResults}>
-			<div className={styles.categories}>
-				Categories &gt; Categories &gt; Categories &gt; Categories &gt; Categories
+			<div className={styles.categoriesBreadcrumb}>
+				{categories.map((cat, idx) => (
+					<React.Fragment key={cat}>
+						<span className={styles.category}>{cat}</span>
+						{idx < categories.length - 1 && '>'}
+					</React.Fragment>
+				))}
 			</div>
+
 			{items.map((item) => (
 				<ItemListing item={item} key={item.id} />
 			))}

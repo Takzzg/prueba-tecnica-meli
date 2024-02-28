@@ -37,7 +37,7 @@ const ItemDesc = async ({ params }: { params: { id: string } }) => {
 			<Breadcrumb items={categories} />
 
 			<div className={styles.itemDetail}>
-				<div className={styles.itemPicture}>
+				<div className={styles.itemPicture} data-cy='itemPicture'>
 					<Image src={picture} alt='product picture' fill sizes='680px' />
 				</div>
 				<div className={styles.mainDetails}>
@@ -55,7 +55,12 @@ const ItemDesc = async ({ params }: { params: { id: string } }) => {
 						)}
 					</div>
 
-					<Link href={permalink} target='_blank' className={styles.buyButton}>
+					<Link
+						href={permalink}
+						target='_blank'
+						className={styles.buyButton}
+						data-cy='buyButton'
+					>
 						Comprar
 					</Link>
 

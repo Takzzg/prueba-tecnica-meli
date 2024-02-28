@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { ItemListing_Type, SearchResponse_Type } from '@/types/api'
+import { DefaultAuthor, ItemListing_Type, SearchResponse_Type } from '@/types/api'
 
 // Search items by name
 export const GET = async (req: NextRequest) => {
@@ -41,7 +41,7 @@ export const GET = async (req: NextRequest) => {
 	})
 
 	const response: SearchResponse_Type = {
-		author: { name: 'Guido', lastname: 'Queiroz' },
+		author: DefaultAuthor,
 		categories,
 		items: items,
 	}

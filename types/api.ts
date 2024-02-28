@@ -1,4 +1,5 @@
 type AuthorSignature_Type = { name: string; lastname: string }
+export const DefaultAuthor: AuthorSignature_Type = { name: 'Guido', lastname: 'Queiroz' }
 
 export type SearchResponse_Type = {
 	author: AuthorSignature_Type
@@ -23,7 +24,9 @@ export type ItemListing_Type = {
 	seller_name: string
 }
 
-export type ItemDetails_type = {
+export type ItemDetails_Type = ItemListing_Type & { sold_quantity: number; description: string }
+
+export type ItemDetailsResponse_Type = {
 	author: AuthorSignature_Type
-	item: ItemListing_Type & { sold_quantity: number; description: string }
+	item: ItemDetails_Type
 }

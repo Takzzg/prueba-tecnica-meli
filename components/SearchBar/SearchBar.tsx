@@ -17,7 +17,7 @@ const SearchBar = () => {
 	}
 
 	return (
-		<div className={styles.searchBoxContainer}>
+		<div className={styles.searchBoxContainer} data-cy='searchBar'>
 			<div className={styles.content}>
 				<div className={styles.logoContainer}>
 					<div className={styles.logoML}>
@@ -28,6 +28,7 @@ const SearchBar = () => {
 							fill
 							sizes='64px'
 							priority={true}
+							data-cy='logo'
 						/>
 					</div>
 				</div>
@@ -42,11 +43,13 @@ const SearchBar = () => {
 						}
 						placeholder='Nunca dejes de buscar'
 						className={styles.textInput}
+						data-cy='textInput'
 					/>
 					<button
 						onClick={handleSearchAction}
-						disabled={!searchInput}
+						disabled={searchInput.length < 3}
 						className={styles.searchButton}
+						data-cy='searchBtn'
 					>
 						<div className={styles.searchIcon}>
 							<Image

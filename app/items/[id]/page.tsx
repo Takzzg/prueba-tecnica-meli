@@ -27,6 +27,15 @@ const fetchItem = async (id: string) => {
 			free_shipping: details.shipping.free_shipping,
 			sold_quantity: details.initial_quantity,
 			description: description.plain_text,
+
+			// extras
+			location: [
+				details.seller_address.city.name,
+				details.seller_address.state.name,
+				details.seller_address.country.name,
+			].join(', '),
+			// no seller nickname
+			seller_name: details.seller_id,
 		},
 	}
 

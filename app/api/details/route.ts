@@ -9,10 +9,25 @@ const itemDescription = async (id: string) => {
 	const res = await fetch(`${process.env.MELI_ITEM_URL}/${id}/description`)
 	return res.json()
 }
+const itemCategory = async (catID: string) => {
+	const res = await fetch(`${process.env.MELI_CAT_URL}/${catID}`)
+	return res.json()
+}
 
 export const POST = async (req: NextRequest) => {
-	const id = (await req.json()).id
+	const data = await req.json()
+	const { itemID: id } = data
+
+	// Can break on invalid id (eg: 1)
+	// also React Dev Tools (or strict mode) are sending this as id ????
+	// react_devtools_backend_compact.js.map
+
+	// TODO: check id (maybe return error ?)
+
 	const [details, description] = await Promise.all([itemDetails(id), itemDescription(id)])
+	const rawCategories = await itemCategory(details.category_id)
+
+	const categories = rawCategories.path_from_root.map((cat) => cat.name)
 
 	const item: ItemDetails_Type = {
 		id,
@@ -34,11 +49,12 @@ export const POST = async (req: NextRequest) => {
 			details.seller_address.state.name,
 			details.seller_address.country.name,
 		].join(', '),
+		permalink: details.permalink,
 		// no seller nickname
 		seller_name: details.seller_id,
 	}
 
-	const response: ItemDetailsResponse_Type = { author: DefaultAuthor, item }
+	const response: ItemDetailsResponse_Type = { author: DefaultAuthor, item, categories }
 
 	// return
 	return NextResponse.json(response)

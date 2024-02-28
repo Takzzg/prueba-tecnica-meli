@@ -4,17 +4,4 @@
 	grid-column: span 10;
 	display: grid;
 	grid-template-columns: subgrid;
-
-	.categoriesBreadcrumb {
-		grid-column: span 10;
-		font-size: $font-size-xs;
-		padding: $spacing-sm;
-		padding-left: 0;
-		display: flex;
-		gap: $spacing-xs;
-
-		.category:last-of-type {
-			font-weight: bold;
-		}
-	}
 }

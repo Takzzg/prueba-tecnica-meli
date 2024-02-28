@@ -8,7 +8,7 @@ import Shipping_Logo from '@/public/assets/ic_shipping.png'
 const conditionMapping = { new: 'Nuevo', used: 'Usado' }
 
 const ItemListing = ({ item }: { item: ItemListing_Type }) => {
-	const { id, picture, price, title, free_shipping, condition } = item
+	const { id, picture, price, title, free_shipping, condition, location, seller_name } = item
 
 	return (
 		<Link href={`items/${id}`} className={styles.itemListing}>
@@ -25,7 +25,7 @@ const ItemListing = ({ item }: { item: ItemListing_Type }) => {
 
 				{!!free_shipping && (
 					<span className={styles.freeShipping}>
-						<Image src={Shipping_Logo} alt='shipping' />
+						<Image src={Shipping_Logo} alt='shipping' sizes='18px' />
 						Envio gratis!
 					</span>
 				)}
@@ -36,8 +36,8 @@ const ItemListing = ({ item }: { item: ItemListing_Type }) => {
 			<div className={styles.sellerDetails}>
 				<span className={styles.condition}>{conditionMapping[condition]}</span>
 				{/* No location provided ??? */}
-				<span className={styles.location}>location ?</span>
-				<span className={styles.seller}>{item.seller_name}</span>
+				<span className={styles.location}>{location ? location : 'Location???'}</span>
+				<span className={styles.seller}>{seller_name}</span>
 			</div>
 		</Link>
 	)

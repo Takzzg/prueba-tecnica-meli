@@ -24,9 +24,18 @@ export type ItemListing_Type = {
 	seller_name: string
 }
 
-export type ItemDetails_Type = ItemListing_Type & { sold_quantity: number; description: string }
+export type ItemDetails_Type = ItemListing_Type & {
+	sold_quantity: number
+	description: string
+
+	// Additional fields
+	permalink: string
+}
 
 export type ItemDetailsResponse_Type = {
 	author: AuthorSignature_Type
 	item: ItemDetails_Type
+
+	// Additional fields
+	categories: string[]
 }

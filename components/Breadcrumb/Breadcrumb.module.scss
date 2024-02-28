@@ -1,0 +1,14 @@
+@import '../../styles/guidelines.scss';
+
+.breadcrumb {
+	grid-column: span 10;
+	font-size: $font-size-xs;
+	padding: $spacing-sm;
+	padding-left: 0;
+	display: flex;
+	gap: $spacing-xs;
+
+	.item:last-of-type {
+		font-weight: bold;
+	}
+}

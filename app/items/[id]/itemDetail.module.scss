@@ -1,0 +1,95 @@
+@import '../../../styles/guidelines.scss';
+
+.mainContainer {
+	display: grid;
+	grid-template-columns: subgrid;
+
+	.breadcrumbs {
+		grid-column: span 10;
+	}
+
+	.itemDetail {
+		display: grid;
+		grid-template-columns: subgrid;
+		grid-column: span 10;
+		padding: $spacing-lg;
+
+		background-color: $color-pure-white;
+		border-radius: $radius;
+		overflow: hidden;
+
+		.itemPicture {
+			grid-column: span 6;
+			// grid-column: span 7;
+			position: relative;
+			aspect-ratio: 1/1;
+		}
+
+		.mainDetails {
+			grid-column: span 4;
+			// grid-column: span 3;
+			display: flex;
+			flex-direction: column;
+
+			.small {
+				font-size: $font-size-xs;
+				margin-bottom: $spacing-sm;
+			}
+
+			.title {
+				font-size: $font-size-lg;
+				margin-bottom: $spacing-lg;
+			}
+
+			.price {
+				font-size: $font-size-xxl;
+				margin-bottom: $spacing-lg;
+
+				.currency,
+				.decimals {
+					font-size: $font-size-xl;
+				}
+			}
+
+			.buyButton {
+				background-color: $color-blue;
+				color: $color-pure-white;
+				border-radius: $radius;
+				padding: $spacing-sm;
+				margin-bottom: $spacing-lg;
+				font-size: $font-size-md;
+				transition: background-color 0.1s;
+				text-align: center;
+
+				&:hover {
+					background-color: rgba($color-blue, $alpha: 0.75);
+				}
+			}
+
+			.freeShipping {
+				display: flex;
+				gap: $spacing-xs;
+				align-items: center;
+				font-size: $font-size-md;
+				margin-bottom: $spacing-sm;
+			}
+		}
+
+		.descriptionContainer {
+			grid-column: span 10;
+			display: flex;
+			flex-direction: column;
+			padding: $spacing-lg;
+			gap: $spacing-lg;
+
+			.title {
+				font-size: $font-size-xl;
+			}
+
+			.desc {
+				color: $color-medium-gray;
+				font-size: $font-size-sm;
+			}
+		}
+	}
+}

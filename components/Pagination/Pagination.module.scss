@@ -21,15 +21,18 @@
 			height: 100%;
 
 			&:disabled {
-				background-color: $color-light-gray;
-				color: $color-pure-white;
-				opacity: 0.25;
+				$disabledButtonColor: rgba($color-light-gray, 0.25);
+
+				color: $disabledButtonColor;
+				outline: 1px solid $disabledButtonColor;
+
+				background-color: $color-white;
 			}
 
 			&.activePage {
 				color: $color-pure-white;
 				background-color: $color-blue;
-				opacity: 1;
+				outline: none;
 			}
 		}
 	}

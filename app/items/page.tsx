@@ -6,6 +6,7 @@ import { ItemListing_Type, SearchResponse_Type } from '@/types/api'
 import { useSearchParams } from 'next/navigation'
 import ItemListing from '@/components/ItemListing/ItemListing'
 import Pagination from '@/components/Pagination/Pagination'
+import Breadcrumb from '@/components/Breadcrumb/Breadcrumb'
 
 const Items = () => {
 	// read query from url
@@ -38,14 +39,7 @@ const Items = () => {
 
 	return (
 		<div className={styles.searchResults}>
-			<div className={styles.categoriesBreadcrumb}>
-				{categories.map((cat, idx) => (
-					<React.Fragment key={cat}>
-						<span className={styles.category}>{cat}</span>
-						{idx < categories.length - 1 && '>'}
-					</React.Fragment>
-				))}
-			</div>
+			<Breadcrumb items={categories} />
 
 			<Pagination
 				componentList={items.map((item) => (

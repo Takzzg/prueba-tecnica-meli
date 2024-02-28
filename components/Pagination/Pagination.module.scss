@@ -1,0 +1,36 @@
+@import '../../styles/guidelines.scss';
+
+.pagination {
+	grid-column: span 10;
+	display: grid;
+	grid-template-columns: subgrid;
+	gap: $spacing-xxs;
+
+	.pageButtons {
+		grid-column: span 10;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: $spacing-xs;
+
+		button {
+			background-color: $color-pure-white;
+			padding: $spacing-xxs;
+			border-radius: $radius;
+			aspect-ratio: 1/1;
+			height: 100%;
+
+			&:disabled {
+				background-color: $color-light-gray;
+				color: $color-pure-white;
+				opacity: 0.25;
+			}
+
+			&.activePage {
+				color: $color-pure-white;
+				background-color: $color-blue;
+				opacity: 1;
+			}
+		}
+	}
+}

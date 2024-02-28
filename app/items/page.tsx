@@ -5,14 +5,18 @@ import React, { useEffect, useState } from 'react'
 import { ItemListing_Type, SearchResponse_Type } from '@/types/api'
 import { useSearchParams } from 'next/navigation'
 import ItemListing from '@/components/ItemListing/ItemListing'
+import Pagination from '@/components/Pagination/Pagination'
 
 const Items = () => {
+	// read query from url
 	const params = useSearchParams()
 	const query = params.get('search')
 
+	// setup states
 	const [loading, setLoading] = useState(false)
 	const [categories, setCategories] = useState<string[]>([])
 	const [items, setItems] = useState<ItemListing_Type[]>([])
+	const [pagination, setPagination] = useState(0)
 
 	// call api whenever params change
 	useEffect(() => {
@@ -23,6 +27,7 @@ const Items = () => {
 			const data: SearchResponse_Type = await res.json()
 			setItems(data.items || [])
 			setCategories(data.categories || [])
+			setPagination(0)
 
 			setLoading(false)
 		}
@@ -42,9 +47,14 @@ const Items = () => {
 				))}
 			</div>
 
-			{items.map((item) => (
-				<ItemListing item={item} key={item.id} />
-			))}
+			<Pagination
+				componentList={items.map((item) => (
+					<ItemListing item={item} key={item.id} />
+				))}
+				currentPage={pagination}
+				changePage={setPagination}
+				maxResultsPerPage={4}
+			/>
 		</div>
 	)
 }

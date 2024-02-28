@@ -24,6 +24,11 @@ body {
 button {
 	border-radius: 0;
 	border: none;
+	cursor: pointer;
+
+	&:disabled {
+		cursor: not-allowed;
+	}
 }
 
 a {

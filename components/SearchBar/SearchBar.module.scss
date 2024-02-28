@@ -52,12 +52,10 @@
 			.searchButton {
 				height: 100%;
 				aspect-ratio: 1/1;
-				cursor: pointer;
 				background-color: $color-white;
 				padding: $spacing-xs;
 
 				&:disabled {
-					cursor: not-allowed;
 					opacity: 0.25;
 				}
 

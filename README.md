@@ -14,7 +14,7 @@ esta app fue inicializada con `yarn create next-app`.
     npm install
 ```
 
-2. Iniciar servidor de desarrollo.
+2. Iniciar servidor dev.
 
 ```bash
     # yarn
@@ -25,6 +25,19 @@ esta app fue inicializada con `yarn create next-app`.
 ```
 
 3. Abrir [http://localhost:3000](http://localhost:3000) en el navegador.
+
+## Testing
+
+1. Iniciar servidor dev.
+2. Abrir una consola nueva.
+
+```bash
+    # yarn
+    yarn cypress:open
+
+    # npm
+    npm run cypress:open
+```
 
 # Original Next.js Readme.md
 

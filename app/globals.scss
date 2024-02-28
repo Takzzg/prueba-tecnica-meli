@@ -8,15 +8,23 @@ body {
 
 	display: grid;
 	grid-template-columns: repeat(12, 1fr);
+	gap: 0 $spacing-sm;
 
 	.children-container {
 		grid-column: 2/-2;
+		display: grid;
+		grid-template-columns: subgrid;
 	}
 }
 
 button {
 	border-radius: 0;
 	border: none;
+}
+
+a {
+	text-decoration: none;
+	color: black;
 }
 
 input[type='text'] {

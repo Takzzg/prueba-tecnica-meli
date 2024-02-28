@@ -17,6 +17,10 @@ export type ItemListing_Type = {
 	picture: string
 	condition: string
 	free_shipping: boolean
+
+	// Additional fields
+	location: string
+	seller_name: string
 }
 
 export type ItemDetails_type = {

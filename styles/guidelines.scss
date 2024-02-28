@@ -5,6 +5,7 @@ $color-medium-gray: #666666;
 $color-light-gray: #999999;
 $color-white: #eeeeee;
 $color-blue: #3483fa;
+$color-pure-white: white;
 
 // spacing
 $spacing-xxs: 4px;
@@ -23,3 +24,12 @@ $font-size-xxl: 46px;
 
 // border radius
 $radius: 4px;
+
+// image sizes
+$image-size-sm: 180px;
+$image-size-lg: 680px;
+/** 
+    discrepancia con los tamaños de imagen:
+    (width 180px!== span 2 columns && width 680px !== span 7 columns)
+    las imagenes se ajustan a la grilla y estan usando este valor como max
+*/

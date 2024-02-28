@@ -1,9 +1,10 @@
 'use client'
 
+import styles from './items.module.scss'
 import { useEffect, useState } from 'react'
 import { ItemListing_Type, SearchResponse_Type } from '@/types/api'
 import { useSearchParams } from 'next/navigation'
-import Link from 'next/link'
+import ItemListing from '@/components/ItemListing/ItemListing'
 
 const Items = () => {
 	const params = useSearchParams()
@@ -26,17 +27,16 @@ const Items = () => {
 		searchItemsByTitle()
 	}, [query])
 
+	if (loading) return <div>Buscando...</div>
+
 	return (
-		<div className={'flex flex-col'}>
-			{loading ? (
-				<div>Buscando...</div>
-			) : (
-				items.map((item) => (
-					<Link href={`items/${item.id}`} key={item.id}>
-						{item.title}
-					</Link>
-				))
-			)}
+		<div className={styles.searchResults}>
+			<div className={styles.categories}>
+				Categories &gt; Categories &gt; Categories &gt; Categories &gt; Categories
+			</div>
+			{items.map((item) => (
+				<ItemListing item={item} key={item.id} />
+			))}
 		</div>
 	)
 }

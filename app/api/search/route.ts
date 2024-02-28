@@ -25,6 +25,11 @@ export const GET = async (req: NextRequest) => {
 			picture: item.thumbnail,
 			condition: item.condition,
 			free_shipping: item.shipping.free_shipping,
+
+			// Extras
+			seller_name: item.seller.nickname,
+			// No location provided on API ???
+			location: '',
 		}
 		return detail
 	})

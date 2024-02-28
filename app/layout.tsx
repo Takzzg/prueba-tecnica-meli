@@ -1,6 +1,6 @@
 import { Inter } from 'next/font/google'
 import './globals.scss'
-import SearchBar from '@/components/SearchBox/SearchBar'
+import SearchBar from '@/components/SearchBar/SearchBar'
 
 const inter = Inter({ subsets: ['latin'] })
 

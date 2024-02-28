@@ -26,6 +26,8 @@ const SearchBar = () => {
 							src={Logo_ML}
 							alt='Logo Mercado Libre'
 							fill
+							sizes='64px'
+							priority={true}
 						/>
 					</div>
 				</div>
@@ -52,6 +54,7 @@ const SearchBar = () => {
 								src={Search_Icon}
 								alt='Buscar'
 								fill
+								sizes='16px'
 							/>
 						</div>
 					</button>

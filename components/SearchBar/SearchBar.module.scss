@@ -34,7 +34,7 @@
 			grid-template-columns: 1fr auto;
 			border-radius: $radius;
 			overflow: hidden;
-			background-color: white;
+			background-color: $color-pure-white;
 
 			&:focus-within {
 				outline: 1px solid $color-dark-gray;

@@ -29,7 +29,8 @@ esta app fue inicializada con `yarn create next-app`.
 ## Testing
 
 1. Iniciar servidor dev.
-2. Abrir una consola nueva.
+
+2. Abrir Cypress en una consola nueva.
 
 ```bash
     # yarn
@@ -38,6 +39,13 @@ esta app fue inicializada con `yarn create next-app`.
     # npm
     npm run cypress:open
 ```
+
+3. Elegir entre E2E y Componentse
+
+    - cada archivo es un test, se puede cambiar sin reiniciar
+    - Component testing no requiere servidor dev.
+
+<br>
 
 # Original Next.js Readme.md
 

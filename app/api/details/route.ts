@@ -27,6 +27,7 @@ const itemCategory = async (catID: string) => {
 }
 
 export const POST = async (req: NextRequest) => {
+	// read body
 	const data = await req.json()
 	const { itemID: id } = data
 

@@ -34,10 +34,10 @@ esta app fue inicializada con `yarn create next-app`.
 
 ```bash
     # yarn
-    yarn cypress:open
+    yarn cy
 
     # npm
-    npm run cypress:open
+    npm run cy
 ```
 
 3. Elegir entre E2E y Componentse

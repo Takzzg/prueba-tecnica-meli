@@ -6,7 +6,7 @@ const revalidate = 300
 
 // Search items by name
 export const GET = async (req: NextRequest) => {
-	console.count('Search Fetch Request')
+	// console.count('Search Fetch Request')
 
 	// fetch items
 	const title = req.nextUrl.searchParams.get('title')

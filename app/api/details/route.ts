@@ -5,21 +5,21 @@ import { NextRequest, NextResponse } from 'next/server'
 const revalidate = 300
 
 const itemDetails = async (id: string) => {
-	console.count('Item Details Fetch Request')
+	// console.count('Item Details Fetch Request')
 	const res = await fetch(`${process.env.MELI_ITEM_URL}/${id}`, {
 		next: { revalidate },
 	})
 	return res.json()
 }
 const itemDescription = async (id: string) => {
-	console.count('Item Description Fetch Request')
+	// console.count('Item Description Fetch Request')
 	const res = await fetch(`${process.env.MELI_ITEM_URL}/${id}/description`, {
 		next: { revalidate },
 	})
 	return res.json()
 }
 const itemCategory = async (catID: string) => {
-	console.count('Item Category Fetch Request')
+	// console.count('Item Category Fetch Request')
 	const res = await fetch(`${process.env.MELI_CAT_URL}/${catID}`, {
 		next: { revalidate },
 	})

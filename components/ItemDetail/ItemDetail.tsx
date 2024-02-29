@@ -1,22 +1,12 @@
 import Image from 'next/image'
 import styles from './itemDetail.module.scss'
-import { ItemDetailsResponse_Type } from '@/types/api'
 import Link from 'next/link'
 import Shipping_Logo from '@/public/assets/ic_shipping@2x.png'
 import Breadcrumb from '@/components/Breadcrumb/Breadcrumb'
+import { ItemDetailsResponse_Type } from '@/types/api'
 
-const ItemDetail = async ({ params }: { params: { id: string } }) => {
-	// dirty id check. FIX!
-	if (!params.id.includes('MLA')) return <div>invalid ID</div>
-
-	// fetch item details
-	const res = await fetch(process.env.SITE_URL + '/api/details/', {
-		method: 'POST',
-		body: JSON.stringify({ itemID: params.id }),
-	})
-	const details: ItemDetailsResponse_Type = await res.json()
-
-	const { author, item, categories } = details
+const ItemDetail = (props: ItemDetailsResponse_Type) => {
+	const { author, item, categories } = props
 	const {
 		id,
 		picture,

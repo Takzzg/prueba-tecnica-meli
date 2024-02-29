@@ -29,7 +29,6 @@ esta app fue inicializada con `yarn create next-app`.
 ## Testing
 
 1. Iniciar servidor dev.
-
 2. Abrir Cypress en una consola nueva.
 
 ```bash
@@ -41,13 +40,41 @@ esta app fue inicializada con `yarn create next-app`.
 ```
 
 3. Elegir entre E2E y Componentse
-
     - cada archivo es un test, se puede cambiar sin reiniciar
     - Component testing no requiere servidor dev.
 
-<br>
+## Estructura del proyecto
 
-# Original Next.js Readme.md
+```bash
+    ./ # root
+    |   app/
+    |   |   api/
+    |   |   |   details/route.ts # pedir detalles, descripcion y categoria de un item
+    |   |   |   search/route.ts # buscar items por titulo
+    |   |
+    |   |   items/
+    |   |   |   page.tsx # reads url query and shows y llama a api/search/
+    |   |   |   /[id]/page.tsx # read id from url search params y llama a api/details
+    |   |
+    |   |   globals.scss # reset estilos globales (margin: 0; etc...)
+    |   |   icon.png # icono pestaña
+    |   |   layout.tsx # se muestra en todas las urls, contiene a la caja de busqueda
+    |   |   page.tsx # localhost:3000/
+    |
+    |   components/
+    |   cypress/
+    |   public/assets/ # imagenes estaticas
+    |   styles/guidelines.scss # variables sass con colores, tamaños, etc...
+    |   types/api.ts # tipos devueltos por api/search/ y api/details/
+    |   .env # URLs ML
+    |   [...]
+```
+
+<br>
+<hr>
+
+<details>
+    <summary>Original Next.js Readme.md</summary>
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
@@ -85,3 +112,5 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+</details>

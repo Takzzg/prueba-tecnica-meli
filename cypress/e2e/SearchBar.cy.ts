@@ -77,6 +77,21 @@ describe('SearchBar', () => {
 		})
 	})
 
+	const testSearchArray = (description: string, array: string[]) => {
+		describe(description, () => {
+			beforeEach(() => cy.visit('/'))
+
+			for (let index = 0; index < array.length; index++) {
+				const prod = array[index]
+
+				it(`/items?search=${prod}`, () => {
+					cy.get('[data-cy="textInput"]').type(`${prod}{enter}`)
+					cy.url({ decode: true }).should('contain', `/items?search=${prod}`)
+				})
+			}
+		})
+	}
+
 	describe('On Search', () => {
 		const randomProducts = [
 			'Rana',
@@ -121,34 +136,17 @@ describe('SearchBar', () => {
 			'Gabinete',
 		]
 
-		describe('redirects to appropiate url', () => {
-			beforeEach(() => cy.visit('/'))
+		// pick 5 items at random
+		const pickedProducts: string[] = []
+		for (let index = 0; index < 5; index++)
+			pickedProducts.push(randomProducts[Math.round(Math.random() * randomProducts.length)])
 
-			for (let index = 0; index < 5; index++) {
-				const prod = randomProducts[Math.round(Math.random() * randomProducts.length)]
+		// test for random items
+		testSearchArray('redirects to appropiate url', pickedProducts)
 
-				it(`/items?search=${prod}`, () => {
-					cy.get('[data-cy="textInput"]').type(`${prod}{enter}`)
-					cy.url({ decode: true }).should('contain', `/items?search=${prod}`)
-					cy.get('[data-cy="textInput"]').clear()
-				})
-			}
-		})
-
-		const specialChars = ['Sillón', 'Ubicación', 'M&M', 'Cañon', '007']
-
-		describe('works with special characters', () => {
-			beforeEach(() => cy.visit('/'))
-
-			for (let index = 0; index < specialChars.length; index++) {
-				const prod = specialChars[index]
-
-				it(`/items?search=${prod}`, () => {
-					cy.get('[data-cy="textInput"]').type(`${prod}{enter}`)
-					cy.url({ decode: true }).should('contain', `/items?search=${prod}`)
-					cy.get('[data-cy="textInput"]').clear()
-				})
-			}
-		})
+		// test for words with special characters
+		const specialChars = ['Sillón', 'Ubicación', 'M&M', 'Cañon', '007', '_', '.', ',', '/', '}']
+		// Char '}' creaks cy.type() => Unknown command: {{enter}
+		testSearchArray('works with special characters', specialChars)
 	})
 })
